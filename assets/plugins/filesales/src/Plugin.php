@@ -176,4 +176,13 @@ class Plugin
             };
         }
     }
+
+    public function OnPluginFormSave()
+    {
+        $id = $this->params['id'];
+        $q = $this->modx->db->query("SELECT `name` FROM {$this->modx->getFullTableName('site_plugins')} WHERE `name`='FileSales' AND `id`={$id}");
+        if ($this->modx->db->getValue($q)) {
+            $this->model->createTable();
+        }
+    }
 }
