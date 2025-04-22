@@ -164,7 +164,7 @@ class Plugin
     {
         if (!empty($this->params['order']['fields']['files'])) {
             $files = $this->params['order']['fields']['files'];
-            $this->params['columns']['title']['content'] = function ($data) use ($files) {
+            $this->params['columns']['title']['content'] = function ($data, $DL, $eDL) use ($files) {
                 $url = $this->modx->makeUrl($data['id']);
                 $edited = $data['original_title'] !== $data['pagetitle'] ? '<i class="fa fa-edit"></i>&nbsp;' : '';
                 $out = '<a href="' . $url . '" target="_blank">' . $edited . htmlentities($data['pagetitle']) . '</a>';
