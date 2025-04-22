@@ -27,7 +27,7 @@ class Plugin
     {
         $params['driver'] = $params['driver'] ?? 'Pathologic\\FileSales\\Drivers\\Readfile';
         if (!class_exists($params['driver']) || !is_a($params['driver'],
-                'Pathologic\\FileSales\\Drivers\\DriverInterface')) {
+                'Pathologic\\FileSales\\Drivers\\DriverInterface', true)) {
             $params['driver'] = 'Pathologic\\FileSales\\Drivers\\Readfile';
         }
         $params['paidstatusid'] = (int) $params['paidstatusid'] ?? 0;
